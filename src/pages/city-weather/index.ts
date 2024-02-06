@@ -1,0 +1,1 @@
+export { CityWeather } from './ui/city-weather.page'

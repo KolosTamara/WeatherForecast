@@ -8,7 +8,7 @@ export function GlobalSearch() {
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'Enter') {
-      addFavoriteCity({ cityName: value })
+      addFavoriteCity(value)
     }
   }
 

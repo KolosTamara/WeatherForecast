@@ -6,7 +6,7 @@ type Props = {
 
 export function WeatherCard({ weather }: Props) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col rounded-lg">
       <div className="flex flex-row">
         <h1>
           {weather.name}
@@ -14,7 +14,7 @@ export function WeatherCard({ weather }: Props) {
         <span>
           -2.5 C
         </span>
-        <img className="w-5" src="src\entities\weather\ui\cat.webp" alt="weather type image" />
+        <img className="w-5" src="src\entities\assets\cat.webp" alt="weather type image" />
         <button>
           Delete
         </button>

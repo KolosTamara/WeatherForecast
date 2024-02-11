@@ -1,8 +1,10 @@
 import { WeatherCard } from "../../../entities/weather"
-import { useWeatherInPlaceQuery } from "../../../features/weather-in-place"
+import { useWeatherInPlaceQuery, useFavoriteCitiesQuery } from "../../../features/weather-in-place"
 
 export function Favorites() {
   const { data: weather } = useWeatherInPlaceQuery()
+  const { data: favorites } = useFavoriteCitiesQuery()
+
 
   return (
     <div>
@@ -16,6 +18,8 @@ export function Favorites() {
       {weather ?
         <WeatherCard weather={weather} /> : 'loading...'
       }
+      AAAAAAAAAAAAAAAAAAAAA
+      {favorites && favorites.map(item => <WeatherCard key={item.name} weather={item} />)}
     </div>
   )
 }

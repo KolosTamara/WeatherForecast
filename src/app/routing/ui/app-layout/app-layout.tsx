@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { GlobalSearch } from "../../../../widgets/global-search";
 
 export function AppLayout() {
   return (
@@ -6,6 +7,7 @@ export function AppLayout() {
       <h1>
         общий текст
       </h1>
+      <GlobalSearch />
       <Outlet />
     </div>
   )

@@ -1,0 +1,1 @@
+export { useWeatherInPlaceQuery } from "./state/weather-in-place.query"

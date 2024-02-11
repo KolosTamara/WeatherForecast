@@ -19,7 +19,7 @@ export function GlobalSearch() {
 
   return (
     <div>
-      I am Search
+      <p>Поиск погоды в любимом городе</p>
       <input type="search" placeholder="Название города" value={value} onChange={handleChange} onKeyDown={handleKeyDown} />
     </div>
   )

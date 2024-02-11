@@ -8,17 +8,12 @@ export function Favorites() {
 
   return (
     <div>
-      ПоГОдА в ГоМеЛЕ!!!!
-      <a href="city/msk">
-        МОСКВА
-      </a>
-      <a href="city/spb" className="text-3xl font-bold underline">
-        Ленинград
-      </a>
+      <p><strong>Сайт может не работать без ВПН!</strong></p>
+      Погода в Казани:
       {weather ?
         <WeatherCard weather={weather} /> : 'loading...'
       }
-      AAAAAAAAAAAAAAAAAAAAA
+      Погода в любимых городах:
       {favorites && favorites.map(item => <WeatherCard key={item.name} weather={item} />)}
     </div>
   )

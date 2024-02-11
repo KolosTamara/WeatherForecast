@@ -7,11 +7,22 @@ export function useAddFavoriteCityMutation() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (cityName: string) => WeatherInPlaceApi.findWeatherInCity(cityName),
-    onSuccess: ({ data }) => {
+    mutationFn: async (cityName: string): Promise<IWeather> => {
+      const favoriteWeathers = queryClient.getQueryData<IWeather[]>(favoriteCitiesQueryKey)
+      const sameCity = (favoriteWeathers || []).find(CityWeather => CityWeather.name === cityName)
+
+      if (sameCity) {
+        return sameCity
+      }
+
+      const { data } = await WeatherInPlaceApi.findWeatherInCity(cityName)
+      return data
+    },
+    onSuccess: (data) => {
       const favoriteWeathers = queryClient.getQueryData<IWeather[]>(favoriteCitiesQueryKey)
       if (favoriteWeathers) {
-        queryClient.setQueryData(favoriteCitiesQueryKey, [...favoriteWeathers, data])
+        const filteredFavorites = favoriteWeathers.filter(item => item.name !== data.name)
+        queryClient.setQueryData(favoriteCitiesQueryKey, [data, ...filteredFavorites])
       }
     }
   })

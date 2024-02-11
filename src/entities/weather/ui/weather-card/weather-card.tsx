@@ -6,13 +6,13 @@ type Props = {
 
 export function WeatherCard({ weather }: Props) {
   return (
-    <div className="flex flex-col rounded-lg">
+    <div className="flex flex-col">
       <div className="flex flex-row">
         <h1>
           {weather.name}
         </h1>
         <span>
-          -2.5 C
+          {weather.main.temp} С
         </span>
         <img className="w-5" src="src\entities\assets\cat.webp" alt="weather type image" />
         <button>
@@ -24,25 +24,19 @@ export function WeatherCard({ weather }: Props) {
           <h2>
             Ветер
           </h2>
-          <span>3 ms</span>
-        </div>
-        <div className="flex flex-row">
-          <h2>
-            Облачность
-          </h2>
-          <span>90%</span>
+          <span>{weather.wind.speed} м/с </span>
         </div>
         <div className="flex flex-row">
           <h2>
             Давление
           </h2>
-          <span>109 hpa</span>
+          <span>{weather.main.pressure} мм.рт.ст</span>
         </div>
         <div className="flex flex-row">
           <h2>
             Влажность
           </h2>
-          <span>85%</span>
+          <span>{weather.main.humidity} %</span>
         </div>
       </div>
     </div>

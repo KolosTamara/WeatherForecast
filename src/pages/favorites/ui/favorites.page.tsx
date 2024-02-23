@@ -9,7 +9,6 @@ export function Favorites() {
   return (
     <div>
       <p><strong>Сайт может не работать без ВПН!</strong></p>
-      Погода в Казани:
       {weather ?
         <WeatherCard weather={weather} /> : 'loading...'
       }

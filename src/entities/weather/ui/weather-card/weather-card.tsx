@@ -14,7 +14,7 @@ export function WeatherCard({ weather }: Props) {
         <span>
           {weather.main.temp} С
         </span>
-        <img className="w-6" src={`src/entities/assets/${weather.weather[0].icon}@2x.png`} alt="weather type image" />
+        <img className="w-6" src={`src/entities/assets/${weather.weather[0]?.icon}@2x.png`} alt="weather type image" />
         <button>
           Delete
         </button>
